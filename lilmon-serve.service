@@ -1,0 +1,28 @@
+[Unit]
+Description=lilmon (serve)
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/lilmon serve
+User=lilmon
+Group=lilmon
+
+NoNewPrivileges=true
+ProtectSystem=strict
+PrivateDevices=yes
+PrivateTmp=yes
+ProtectHome=yes
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE CAP_DAC_READ_SEARCH
+RestrictNamespaces=uts ipc pid user cgroup
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+PrivateUsers=yes
+PrivateDevices=yes
+MemoryDenyWriteExecute=yes
+RestrictAddressFamilies=AF_INET AF_INET6
+RemoveIPC=yes
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,23 @@
+[Unit]
+Description=lilmon (measure)
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/lilmon measure
+User=lilmon
+Group=lilmon
+
+# Needed for sudo
+NoNewPrivileges=false
+RestrictNamespaces=
+PrivateTmp=no
+ProtectSystem=full
+ProtectKernelTunables=no
+ProtectKernelModules=no
+ProtectControlGroups=no
+PrivateDevices=no
+
+[Install]
+WantedBy=multi-user.target
+
